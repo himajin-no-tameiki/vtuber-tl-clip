@@ -1,4 +1,4 @@
-# How to Download a YouTube Video
+# How to Download a YouTube Video (for Davinci Resolve)
 
 (If you have any questions or feedbacks, contact me (@sigh_of_boredom) on Twitter)
 
