@@ -50,7 +50,7 @@ I know this looks intimidating, but there's a reason. Here I'm specifying the vi
 If you want to check what formats YouTube offers for a specific video, run this command.
 
 ```
-$ youtube-dl -F <video URL here>
+$ youtube-dl -F <video>
 ```
 
 This will print something like this.
