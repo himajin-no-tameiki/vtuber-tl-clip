@@ -145,7 +145,7 @@ function ytdlrange {
   # mp4 and m4a so that Davinci Resolve can read it
   $urls = youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' -g $videoID
   $arr = $urls.Split([Environment]::NewLine)
-  ffmpeg -ss $start -i $arr[0] -ss $start -i $arr[1] -to $end -codec copy -y "$fname.mkv"
+  ffmpeg -ss $start -to $end -i $arr[0] -ss $start -to $end -i $arr[1] -codec copy -y "$fname.mkv"
 }
 
 # usage example
@@ -166,7 +166,7 @@ On Linux and Mac, you can write a Bash script like this. (I haven't tested this 
 
 ```sh
 function ytdlrange {
-  ffmpeg $(youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' -g $1 | sed "s/.*/-ss $2 -i &/") -to $3 -codec copy -y $4.mkv
+  ffmpeg $(youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]' -g $1 | sed "s/.*/-ss $2 -to $3 -i &/") -codec copy -y $4.mkv
 }
 
 # usage example
