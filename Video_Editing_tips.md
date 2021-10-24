@@ -1,4 +1,4 @@
-# [WIP] Video Editing Tips
+# [WIP] Davinci Resolve Editing Tips
 
 In this article I'll explain a few tips for making Vtuber clips with Davinci Resolve. (But the same ideas apply to other software as well.)
 
