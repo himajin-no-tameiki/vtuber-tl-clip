@@ -114,13 +114,13 @@ https://r5---sn-oguelnl7.googlevideo.com/videoplayback? ... &mime=audio%2Fmp4& .
 As you can see, the first one is an url for the video stream and the second for audio. Then you feed these into ffmpeg as inputs with `-ss` and `-to` options, which specify the time range you want to download. The `-codec copy` option is to make sure ffmpeg doesn't do any transcoding and lose the quality.
 
 ```sh
-$ ffmpeg -ss <start timestamp> -i <1st URL> -ss <start timestamp> -i <2nd URL> -to <end timestamp> -codec copy '<output filename>.mkv'
+$ ffmpeg -ss <start timestamp> -to <end timestamp> -i <1st URL> -ss <start timestamp> -to <end timestamp> -i <2nd URL> -codec copy '<output filename>.mkv'
 ```
 
 So for example if you want the part 10:00-11:30, you can run:
 
 ```sh
-$ ffmpeg -ss 10:00 -i <1st URL> -ss 10:00 -i <2nd URL> -to 11:30 -codec copy 'bla.mkv'
+$ ffmpeg -ss 10:00 -to 11:30 -i <1st URL> -ss 10:00 -to 11:30 -i <2nd URL> -codec copy 'bla.mkv'
 ```
 
 ### Automating Using a Shell Script
