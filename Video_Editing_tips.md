@@ -1,6 +1,6 @@
 # [WIP] Video Editing Tips
 
-In this article I'll explain the basic workflow of making Vtuber clips for beginner translators. I'll use Davinci Resolve for video editing here because I'm familiar with it the most and also it's a very powerful free program. However, the same ideas apply to other software as well.
+In this article I'll explain a few tips for making Vtuber clips with Davinci Resolve. (But the same ideas apply to other software as well.)
 
 ## DaVinci Resolve
 
