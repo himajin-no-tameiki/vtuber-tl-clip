@@ -8,6 +8,8 @@ In this article we're creating this atmospheric thumbnail using Photoshop. This 
 
 First off, we're going to make the smoky background, which is made up of two layers. First we create a linear gradient layer (Layer > New Fill Layer > Gradient, OR from ![adj](images/adj_layers_menu_button.png) button on the Layers Panel) that goes from white to gray so that it looks like a light is coming from the top left.
 
+Note: You can move the gradient by dragging on the image while its Gradient Fill window is open.
+
 ![bg1](images/dark_smug_bg1.png)
 
 On top, we add a smoke texture from [texturelabs](https://texturelabs.org/?ct=19&pg=1) called "Atmosphere 195". Because it's overall gray and we want it to both darken and lighten the underlying layer, we want to use a blending mode from the contrast group. Here we use the **Linear Light** mode as an example. Reduce the fill or opacity until it looks good.
@@ -20,11 +22,11 @@ Side note: Watch [this video](https://youtu.be/i1D9ijh3_-I?t=28) to learn about 
 
 ## Subject
 
-First, place the subject at the top (here's the [link](https://drive.google.com/file/d/1MZdf72HWhaam4OrNEqFqYb64d7K-cQfP/view?usp=sharing) to this Rion image if you want to use it). And we add a **Satin** layer style to darken it while keeping the side edges bright. This makes it look like lights are coming from left and right.
+First, we place the subject at the top (here's the [link](https://drive.google.com/file/d/1MZdf72HWhaam4OrNEqFqYb64d7K-cQfP/view?usp=sharing) to this Rion image if you want to use it). And we add a **Satin** layer style to darken it while keeping the side edges bright. This makes it look like lights are coming from left and right.
 
 ![img](images/dark_smug_sub_satin.png)
 
-To add a bit more depth to the image, we slightly light up her face and chest with a solid color fill layer (Layer > New Fill Layer > Solid Color). We set its color to pure white, set its blending mode to **Color Dodge**, invert its layer mask (click the layer mask (to the left of the layer name) and press Ctrl-I), and with a very soft and big brush (white color), tap (single click) on these areas. Reduce the Fill value to make it subtle.
+To add a bit more depth to the subject, slightly light up her face and chest with a solid color fill layer (Layer > New Fill Layer > Solid Color). We set its color to pure white, set its blending mode to **Color Dodge**, invert its layer mask (click the layer mask (to the left of the layer name) and press Ctrl-I). And while the layer mask is still selected, with a very soft and big brush (white color), tap (single click) on these areas. Reduce the Fill value to make it subtle.
 
 Note: Of course you could do this using a normal layer but I like to use a solid color layer when it should have a single color.
 
@@ -46,7 +48,7 @@ Finally, to make it more realistic, we add a slight white outer glow.
 
 ## Color Adjustments
 
-And here's the fun part! Add a curves adjustment layer (Layer > New Adjustment Layer > Curves) and in the green curve, bring down a point in the middle like this. Now the whole image is magenta, and looks awesome!
+And here's the fun part! Add a curves adjustment layer (Layer > New Adjustment Layer > Curves) and in the green curve, bring down a point in the middle like this. Now the whole image is magenta, and looks cools!
 
 ![img](images/dark_smug_sub_curve.png)
 
