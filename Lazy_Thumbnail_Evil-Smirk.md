@@ -1,6 +1,6 @@
 # Lazy Thumbnail Tutorial 1 - Evil Smirk
 
-In this article we're creating this atmospheric thumbnail using Photoshop. This type of thumbnail is good for making the subject look smart/strong/evil. Don't worry, it's super easy!
+In this article we're creating this atmospheric thumbnail using Photoshop. This kind of thumbnail is good when for example the video is about the subject trying to prank someone else or showing a great gaming skill. Don't worry, it's easy :)
 
 ![final](images/dark_smug_final.png)
 
