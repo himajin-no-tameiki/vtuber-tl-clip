@@ -12,13 +12,13 @@ Yes. There are two ways to do it. One way is to use an expression where you can 
 
 - [Expressions In Fusion Tab! - DaVinci Resolve 15 Tutorial](https://youtu.be/ODsWGRyGsmU)
 
-Another way is to make an "instance" copy of a node, though this has some limitations. You can do it by first copying the original node (Ctrl-C) and then pressing Ctrl-Shift-V. An instance by default acts identically to the original node, mimicking all the parameter values. But you can manually "unlock" a specific parameter by right-clicking it -> clicking "Deinstance" so that its value no longer copies the original node. This method is useful when you want one node to behave *mostly* in the same way as another.
+Another way is to make an "instance" copy of a node, though this has some limitations. You can do it by first copying the original node `Ctrl-C` and then special pasting `Ctrl-Shift-V`. An instance copy, by default, acts identically to the original node; mimicking all the parameter values. You can manually "unlock" a specific parameter by right-clicking it and selecting `Deinstance` so that its value no longer copies the original node. This method is useful when you want one node to behave *mostly* in the same way as another.
 
-## What is "expression"?
+## What is an "expression"?
 
-It's a piece of programming code (Lua code, actually). You can think of it as something like a math expression (like "3 * 2 + 1"), but more flexible. It's useful because it allows you to automatically compute a value based on other values like the current frame number, other nodes' parameters, etc.
+It's a piece of Lua programming. This is something like a math expression (like "3 * 2 + 1"), but more flexible. It's useful because it allows you to automatically compute a value based on other values like the current frame number, other nodes' parameters, etc.
 
-I recommend checking out this blog post for understanding basics.
+I recommend checking out this blog post for understanding the basics.
 
 - [Blackmagic Fusion Simple Expressions-Cookbook + Tutorial](https://noahhaehnel.com/blog/fusion-simple-expressions-cookbook/)
 
@@ -32,9 +32,9 @@ Check out this cheat sheet.
 
 Yes.
 
-All you have to do is start the expression with ":", and now you can write a multi-lin Lua code. You can define local variables and use control flow syntaxes like `if`, `for`, `while`. Makes sure to `return` the resulting value like a function does.
+All you have to do is start the expression with ":", and now you can write a multi-line Lua expression. You can define local variables and use control flow constructs like `if`, `for`, `while`. Makes sure to `return` the resulting value like a function does.
 
-Example code that calculates the sum of numbers from 1 to 10 (I recommend writing code like this in a text editor and then copy&pasting in Fusion):
+Example code that calculates the sum of numbers from 1 to 10 (I recommend writing multiline code in a text editor and then copy & pasting to Fusion):
 
 ```Lua
 :x = 10
@@ -51,19 +51,19 @@ return y
 
 Yes and no. Variables defined in expressions are local to each frame, and you cannot do something like referencing the previous value of a variable.
 
-On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts (which you can find on Settings tab of any node) DO persist across frames. However, it doesn't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame, and that happens whenever you preview a frame at any point, which means it's not executed in order from start to finish.
+On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts (found in the `Settings` tab of any node) DO persist across frames. However, they doesn't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame which happens whenever you preview a frame at any point. This means it's possible for the script NOT to be executed in-order of the timeline (ie. when scrubbing or jumping around).
 
-## Does scaling an image down and then up lose the quality?
+## Does scaling an image down and then up lower the quality?
 
 No, unless you do any "destructive" operations after scaling down and before scaling up.
 
-Some nodes (Transform (Xf), Merge and maybe more) are "non-destructive", as in when you have multiple non-destructive nodes chained together (with no destructive nodes in between), they don't individually invoke the transformation or resampling operations. Instead, Fusion holds back the operations until the last node in the chain, and then all the operations are "merged" into a single operation before being applied to the input.
+Some nodes (Transform (Xf), Merge and maybe more) are "non-destructive", as in, when you have multiple non-destructive nodes chained together (with no destructive nodes in between), they don't invoke the transformation or resampling operation. Instead, Fusion holds back the operations until the last node in the chain, and then all the operations are "merged" into a single operation before being applied to the input.
 
-Here's an example (see the screenshot below). A text node is the input, the first transform node scales it down to 10%, and the second transform node does the opposite i.e. scales it up to 1000%. The left preview window shows what you'd get if you don't have the second transform node, and as you can see, it's very blurry. But when it's scaled back to the original size by the second transform node, as you can see in the right preview, the original quality comes back magically. This happens because Fusion smartly merges the two operations (x0.1 and x10) into one operation (x1) behind the scenes.
+Here's an example (see the screenshot below). A text node is the input, the first transform node scales it down to 10%, and the second transform node does the opposite i.e. scales it up to 1000%. The left preview window shows what you'd get if you don't have the second transform node, and as you can see, it's very blurry. But when it's scaled back to the original size by the second transform node, as you can see in the right preview, the original quality comes back magically. This happens because Fusion intelligently merges the two operations (x0.1 and x10) into one operation (x1) behind the scenes.
 
 ![](images/fusion_transform_compose.png)
 
-This feature, (despite the limitations of not being able to insert destructive operations in between,) is actually very useful when you need to do a lot of transformations because otherwise you'd often end up with unintuitive, messy node structures just to keep the original qualities of your assets.
+This feature, (despite the limitations of not being able to insert destructive operations in between,) is actually very useful when you need to do a lot of transformations because otherwise you'd often end up with unintuitive, messy node structures just to keep the original quality of your assets.
 
 The same thing can be said about cropping. Usually, when you move an image to the side using a transform node and part of it goes off screen, that part will be lost. But if you add, after that node, another transform node that moves it back to the center, you get the full image back. (example below)
 
@@ -79,7 +79,7 @@ You can verify this by putting a transform node in front of any mask node, and i
 
 ## Can Fusion do per-character text animations like After Effects?
 
-Yes, but not as flexible. The follower modifier allows you to animate each character in a delayed way. Watch this tutorial to learn more about it.
+Yes, but it's not as flexible. The follower modifier allows you to animate each character in a delayed way. Watch this tutorial to learn more about it.
 
 - [A Beginner's Guide to Kinetic Typography in Fusion - The Follower Modifier 3/9](https://youtu.be/Ho2c97XiTD0)
 
@@ -95,7 +95,7 @@ To understand why this happens, you need to dig into how alpha channels are actu
 
 - [Understanding Premultiply, Unpremultiply and Alpha Divide ( Fusion 8 )](https://youtu.be/Q9c-uLcuVk8)
 
-If you're too lazy to watch this, just remember this: To keep the transparency intact, tick "Pre-Divide/Post-Multiply".
+TL;DR: To keep the transparency intact, tick "Pre-Divide/Post-Multiply".
 
 ![](images/fusion_bc_predevide_postmultiply.png)
 
