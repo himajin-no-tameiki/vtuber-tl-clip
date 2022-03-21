@@ -12,7 +12,7 @@ Yes. There are two ways to do it. One way is to use an expression where you can 
 
 - [Expressions In Fusion Tab! - DaVinci Resolve 15 Tutorial](https://youtu.be/ODsWGRyGsmU)
 
-Another way is to make an "instance" copy of a node, though this has some limitations. You can do it by first copying the original node (Ctrl-C) and then pressing Ctrl-Shift-V. An instance by default acts identically to the original node, mimicking all the parameter values. But you can manually "unlock" a specific parameter by right-clicking it -> clicking "Deinstance" so that its value no longer follows the value from the original node. This method is useful when you want one node to behave *mostly* in the same way as another.
+Another way is to make an "instance" copy of a node, though this has some limitations. You can do it by first copying the original node (Ctrl-C) and then pressing Ctrl-Shift-V. An instance by default acts identically to the original node, mimicking all the parameter values. But you can manually "unlock" a specific parameter by right-clicking it -> clicking "Deinstance" so that its value no longer copies the original node. This method is useful when you want one node to behave *mostly* in the same way as another.
 
 ## What is "expression"?
 
@@ -51,7 +51,7 @@ return y
 
 Yes and no. Variables defined in expressions are local to each frame, and you cannot do something like referencing the previous value of a variable.
 
-On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts DO persist across frames. However, it doesn't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame, and that happens whenever you preview a frame at any point, which means it's not executed in order from start to finish.
+On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts (which you can find on Settings tab of any node) DO persist across frames. However, it doesn't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame, and that happens whenever you preview a frame at any point, which means it's not executed in order from start to finish.
 
 ## Does scaling an image down and then up lose the quality?
 
