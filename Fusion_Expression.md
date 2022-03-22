@@ -51,7 +51,7 @@ return y
 
 Yes and no. Variables defined in expressions are local to each frame, and you cannot do something like referencing the previous value of a variable.
 
-On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts (found in the `Settings` tab of any node) DO persist across frames. However, they doesn't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame which happens whenever you preview a frame at any point. This means it's possible for the script NOT to be executed in-order of the timeline (ie. when scrubbing or jumping around).
+On the other hand, variables defined in Frame Render Scripts, Start Render Scripts, and End Render Scripts (found in the `Settings` tab of any node) DO persist across frames. However, they don't work in the way you'd expect. A Frame Render Script of a node is run every time the node is asked to render a frame which happens whenever you preview a frame at any point. This means it's possible for the script NOT to be executed in-order of the timeline (ie. when scrubbing or jumping around).
 
 ## Does scaling an image down and then up lower the quality?
 
