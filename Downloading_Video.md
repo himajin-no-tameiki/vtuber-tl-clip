@@ -2,6 +2,8 @@
 
 (If you have any questions or feedbacks, contact me (@sigh_of_boredom) on Twitter)
 
+**EDIT: As of 2022.5.4, the latest youtube-dl version 2021.12.17 gets throttled by YouTube and suffers from slow download speeds. Even though a [patch](https://github.com/ytdl-org/youtube-dl/pull/30184) to fix it is merged to the master branch (a Git term, don't worry about this), it's still not released. I recommend using [yt-dlp](https://github.com/yt-dlp/yt-dlp) instead (or build (i.e. generate an executable file from source code) the master branch of youtube-dl yourself). yt-dlp mostly replicates the command line interface of youtube-dl so you can use commands/scripts below with yt-dlp as well.**
+
 ## Tools
 
 `youtube-dl` is a widely used tool to download YT videos (it actually supports many other websites as well). Though it can handle resolving and fetching video/audio data from YouTube, it requires `ffmpeg` for video/audio processing after downloading, so you should install both.
