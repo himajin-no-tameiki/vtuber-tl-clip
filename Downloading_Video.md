@@ -2,7 +2,7 @@
 
 (If you have any questions or feedbacks, contact me (@sigh_of_boredom) on Twitter)
 
-**EDIT: As of 2022.5.4, the latest youtube-dl version 2021.12.17 gets throttled by YouTube and suffers from slow download speeds. Even though a [patch](https://github.com/ytdl-org/youtube-dl/pull/30184) to fix it is merged to the master branch (a Git term, don't worry about this), it's still not released. I recommend using [yt-dlp](https://github.com/yt-dlp/yt-dlp) instead (or build (i.e. generate an executable file from source code) the master branch of youtube-dl yourself). yt-dlp mostly replicates the command line interface of youtube-dl so you can use commands/scripts below with yt-dlp as well.**
+**EDIT: As of 2022.5.4, the latest youtube-dl version 2021.12.17 gets throttled by YouTube and suffers from slow download speeds. Even though a [patch](https://github.com/ytdl-org/youtube-dl/pull/30184) to fix it is merged to the master branch (a Git term, don't worry about this if you don't know Git), it's still not released. I recommend using [yt-dlp](https://github.com/yt-dlp/yt-dlp) instead (or build (i.e. generate an executable file from source code) the master branch of youtube-dl yourself). yt-dlp mostly replicates the command line interface of youtube-dl so you can use commands/scripts below with yt-dlp as well.**
 
 ## Tools
 
