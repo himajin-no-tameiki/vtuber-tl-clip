@@ -98,6 +98,8 @@ The `bestvideo` / `bestaudio` qualifiers in the earlier command tells youtube-dl
 
 ## Advanced: Downloading a specific portion of a video
 
+**Note: yt-dlp, starting from version [2022.06.22.1](https://github.com/yt-dlp/yt-dlp/releases/tag/2022.06.22.1), allows you to specify a time range like `--download-sections *1:10-2:20`.**
+
 Often times, you only need a short part of a video (e.g. 30:00-33:00 of a 1-hour stream). In that case, the above method is inefficient in terms of both time and storage.
 
 Fortunately, you can do that by using both youtube-dl and ffmpeg. I'll first explain how to do it step-by-step, but I'll also give a script to do it all automatically.
